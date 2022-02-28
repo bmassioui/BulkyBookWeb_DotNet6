@@ -1,6 +1,7 @@
 ﻿#nullable disable
 using BulkyBookWeb.Web.Data;
 using BulkyBookWeb.Web.Entities;
+using BulkyBookWeb.Web.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -44,9 +45,6 @@ public class CategoriesController : Controller
         return View();
     }
 
-    // POST: Categories/Create
-    // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create([Bind("Id,Name,DisplayOrder")] CategoryEntity category)
@@ -55,6 +53,7 @@ public class CategoriesController : Controller
 
         _context.Add(category);
         await _context.SaveChangesAsync();
+        TempData["Success"] = Constants.CATEGORY_CREATED_MSG;
 
         return RedirectToAction(nameof(Index));
     }
@@ -69,9 +68,6 @@ public class CategoriesController : Controller
         return View(category);
     }
 
-    // POST: Categories/Edit/5
-    // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,DisplayOrder")] CategoryEntity category)
@@ -84,6 +80,7 @@ public class CategoriesController : Controller
         {
             _context.Update(category);
             await _context.SaveChangesAsync();
+            TempData["Success"] = Constants.CATEGORY_UPDATED_MSG;
         }
         catch (DbUpdateConcurrencyException)
         {
@@ -118,6 +115,8 @@ public class CategoriesController : Controller
         var category = await _context.Category.FindAsync(id);
         category.IsDeleted = true;
         await _context.SaveChangesAsync();
+        TempData["Success"] = Constants.CATEGORY_DELETED_MSG;
+
         return RedirectToAction(nameof(Index));
     }
 
