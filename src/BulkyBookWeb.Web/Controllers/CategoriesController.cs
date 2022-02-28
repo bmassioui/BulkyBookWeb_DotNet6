@@ -70,7 +70,7 @@ public class CategoriesController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,DisplayOrder")] CategoryEntity category)
+    public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,DisplayOrder,CreatedAt,IsDeleted")] CategoryEntity category)
     {
         if (id != category.Id) return NotFound();
 
