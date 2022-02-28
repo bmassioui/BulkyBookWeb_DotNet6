@@ -9,10 +9,12 @@ namespace BulkyBookWeb.Web.Controllers;
 public class CategoriesController : Controller
 {
     private readonly BulkyBookWebContext _context;
+    private readonly ILogger<CategoriesController> _logger;
 
-    public CategoriesController(BulkyBookWebContext context)
+    public CategoriesController(BulkyBookWebContext context, ILogger<CategoriesController> logger)
     {
         _context = context;
+        _logger = logger;
     }
 
     // GET: Categories
@@ -26,10 +28,8 @@ public class CategoriesController : Controller
     }
 
     // GET: Categories/Details/5
-    public async Task<IActionResult> Details(Guid? id)
+    public async Task<IActionResult> Details(Guid id)
     {
-        if (id == null) return NotFound();
-
         var category = await _context.Category
             .FirstOrDefaultAsync(m => m.Id == id);
 
@@ -60,10 +60,8 @@ public class CategoriesController : Controller
     }
 
     // GET: Categories/Edit/5
-    public async Task<IActionResult> Edit(Guid? id)
+    public async Task<IActionResult> Edit(Guid id)
     {
-        if (id == null) return NotFound();
-
         var category = await _context.Category.FindAsync(id);
 
         if (category == null) return NotFound();
