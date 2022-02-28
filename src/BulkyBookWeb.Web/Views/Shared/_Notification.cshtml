@@ -1,7 +1,18 @@
-﻿@if(!string.IsNullOrWhiteSpace(TempData["success"]?.ToString())){
-    <h2>@TempData["success"]</h2>
+﻿<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/toastr.min.js"></script>
+<link rel="stylesheet" href="~/css/toastr.css" asp-append-version="true" />
+
+@if (!string.IsNullOrWhiteSpace(TempData["success"]?.ToString()))
+{
+    <script type="text/javascript">
+        toastr.success('@TempData["success"]', 'Notification')
+    </script>
+
 }
 
-@if(!string.IsNullOrWhiteSpace(TempData["error"]?.ToString())){
-    <h2>@TempData["error"]</h2>
+@if (!string.IsNullOrWhiteSpace(TempData["error"]?.ToString()))
+{
+    <script type="text/javascript">
+        toastr.error('@TempData["error"]', 'Notification')
+    </script>
 }
