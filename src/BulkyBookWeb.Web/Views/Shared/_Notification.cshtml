@@ -1,0 +1,7 @@
+﻿@if(!string.IsNullOrWhiteSpace(TempData["success"]?.ToString())){
+    <h2>@TempData["success"]</h2>
+}
+
+@if(!string.IsNullOrWhiteSpace(TempData["error"]?.ToString())){
+    <h2>@TempData["error"]</h2>
+}

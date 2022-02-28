@@ -1,7 +1,7 @@
 ﻿#nullable disable
 using BulkyBookWeb.Web.Data;
 using BulkyBookWeb.Web.Entities;
-using BulkyBookWeb.Web.Shared;
+using BulkyBookWeb.Web.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,4 +1,4 @@
-﻿namespace BulkyBookWeb.Web.Shared;
+﻿namespace BulkyBookWeb.Web.Utilities;
 
 public static class Constants
 {
