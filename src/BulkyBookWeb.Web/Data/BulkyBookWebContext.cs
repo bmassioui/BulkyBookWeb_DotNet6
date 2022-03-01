@@ -1,11 +1,13 @@
 ﻿#nullable disable
 using BulkyBookWeb.Web.Data.Common;
 using BulkyBookWeb.Web.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BulkyBookWeb.Web.Data;
 
-public class BulkyBookWebContext : DbContext
+public class BulkyBookWebContext : IdentityDbContext<IdentityUser>
 {
     public BulkyBookWebContext(DbContextOptions<BulkyBookWebContext> options)
         : base(options)

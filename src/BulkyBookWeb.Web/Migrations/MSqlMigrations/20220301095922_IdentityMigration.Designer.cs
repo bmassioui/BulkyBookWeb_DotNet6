@@ -4,6 +4,7 @@ using BulkyBookWeb.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BulkyBookWeb.Web.Migrations.MSqlMigrations
 {
     [DbContext(typeof(BulkyBookWebContext))]
-    partial class BulkyBookWebContextModelSnapshot : ModelSnapshot
+    [Migration("20220301095922_IdentityMigration")]
+    partial class IdentityMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

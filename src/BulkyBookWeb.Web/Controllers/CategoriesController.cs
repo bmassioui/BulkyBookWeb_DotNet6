@@ -28,7 +28,7 @@ public class CategoriesController : Controller
         return View(await categories.ToListAsync());
     }
 
-    // GET: Categories/Details/5
+    // GET: Categories/Details/47906b85-57d9-4086-940d-b2744cb1dab9
     public async Task<IActionResult> Details(Guid id)
     {
         var category = await _context.Category
@@ -58,7 +58,7 @@ public class CategoriesController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    // GET: Categories/Edit/5
+    // GET: Categories/Edit/47906b85-57d9-4086-940d-b2744cb1dab9
     public async Task<IActionResult> Edit(Guid id)
     {
         var category = await _context.Category.FindAsync(id);
@@ -96,7 +96,7 @@ public class CategoriesController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    // GET: Categories/Delete/5
+    // GET: Categories/Delete/47906b85-57d9-4086-940d-b2744cb1dab9
     public async Task<IActionResult> Delete(Guid id)
     {
         var category = await _context.Category
@@ -107,7 +107,7 @@ public class CategoriesController : Controller
         return View(category);
     }
 
-    // POST: Categories/Delete/5
+    // POST: Categories/Delete/47906b85-57d9-4086-940d-b2744cb1dab9
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(Guid id)
